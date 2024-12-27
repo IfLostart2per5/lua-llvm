@@ -3103,7 +3103,7 @@ static int Builder__build_load__meth(lua_State *L) {
   this1 = obj_type_Builder_check(L,1);
   ptr2 = obj_type_Value_check(L,2);
   name3 = luaL_checklstring(L,3,&(name_len3));
-  rc_LLVMBuildLoad1 = LLVMBuildLoad(this1, ptr2, name3);
+  rc_LLVMBuildLoad1 = LLVMBuildLoad2(this1, ptr2, name3);
   obj_type_Value_push(L, rc_LLVMBuildLoad1, 0);
   return 1;
 }
@@ -3134,7 +3134,7 @@ static int Builder__build_Struct_GEP__meth(lua_State *L) {
   ptr2 = obj_type_Value_check(L,2);
   Idx3 = luaL_checkinteger(L,3);
   name4 = luaL_checklstring(L,4,&(name_len4));
-  rc_LLVMBuildStructGEP1 = LLVMBuildStructGEP(this1, ptr2, Idx3, name4);
+  rc_LLVMBuildStructGEP1 = LLVMBuildStructGEP2(this1, ptr2, Idx3, name4);
   obj_type_Value_push(L, rc_LLVMBuildStructGEP1, 0);
   return 1;
 }
