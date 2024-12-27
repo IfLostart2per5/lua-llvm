@@ -3096,14 +3096,16 @@ static int Builder__build_free__meth(lua_State *L) {
 /* method: build_load */
 static int Builder__build_load__meth(lua_State *L) {
   Builder * this1;
+  Type* t1n2;
   Value * ptr2;
   size_t name_len3;
   const char * name3;
   Value * rc_LLVMBuildLoad1;
   this1 = obj_type_Builder_check(L,1);
   ptr2 = obj_type_Value_check(L,2);
+  t1n2= LLVMTypeOf(ptr2);
   name3 = luaL_checklstring(L,3,&(name_len3));
-  rc_LLVMBuildLoad1 = LLVMBuildLoad2(this1, ptr2, name3);
+  rc_LLVMBuildLoad1 = LLVMBuildLoad2(this1, t1n2, ptr2, name3);
   obj_type_Value_push(L, rc_LLVMBuildLoad1, 0);
   return 1;
 }
@@ -3125,6 +3127,7 @@ static int Builder__build_store__meth(lua_State *L) {
 /* method: build_Struct_GEP */
 static int Builder__build_Struct_GEP__meth(lua_State *L) {
   Builder * this1;
+  Type* t1n2;
   Value * ptr2;
   unsigned Idx3;
   size_t name_len4;
@@ -3132,9 +3135,10 @@ static int Builder__build_Struct_GEP__meth(lua_State *L) {
   Value * rc_LLVMBuildStructGEP1;
   this1 = obj_type_Builder_check(L,1);
   ptr2 = obj_type_Value_check(L,2);
+  t1n2 = LLVMTypeOf(ptr2);
   Idx3 = luaL_checkinteger(L,3);
   name4 = luaL_checklstring(L,4,&(name_len4));
-  rc_LLVMBuildStructGEP1 = LLVMBuildStructGEP2(this1, ptr2, Idx3, name4);
+  rc_LLVMBuildStructGEP1 = LLVMBuildStructGEP2(this1, t1n2, ptr2, Idx3, name4);
   obj_type_Value_push(L, rc_LLVMBuildStructGEP1, 0);
   return 1;
 }
